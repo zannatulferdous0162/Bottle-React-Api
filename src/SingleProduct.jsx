@@ -1,21 +1,21 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
-const SingleProduct = ({ product}) => {
+
+const SingleProduct = ({ product, handleCart}) => {
     console.log(product)
   return (
     <div className="card">
       <img className="card-img"
-        src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+        src={product.image}
         alt=""
       />
-      <h4>Golden Ring</h4>
+      <h4>{product.title.slice(0,10)}</h4>
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam quis qui
-        ut facere tenetur enim!
+       {product.description}
       </p>
       <div className="cart-footer">
-        <h1>150 $</h1>
-        <button className="btn">
+        <h1>{product.price}</h1>
+        <button onClick={(p) => handleCart(product)} className="btn">
           Add to Cart
         </button>
       </div>
